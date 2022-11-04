@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block cuerpo %}<p>Estos son los alumnos:</p>
+<p>{{ mensaje }}</p>
+<table class="table table-dark table-hover">
+    <thead>
+        <tr>
+          <td>Id</th>
+          <td>Nombre</th>
+          <td>Apellido Paterno</th>
+          <td>Apellido Materno</th>
+          <td>Correo</th>
+          <td>Numero Emergencia</th>
+          <td>curso ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for alumno in alumnos%}
+        <tr>
+            <td scope="row">{{ alumno.id }}</td>
+            <td>{{ alumno.nombre }}</td>
+            <td>{{ alumno.ape_paterno }}</td>
+            <td>{{ alumno.ape_materno }}</td>
+            <td>{{ alumno.correo }}</td>
+            <td>{{ alumno.num_emergencia }}</td>
+            <td>
+                {# Este es un comentario en Jinja #}
+                {# este metodo es con if/else #}
+                {# {% if alumno.curso_id %} {{ alumno.curso_id}} {% else %} -- {% endif %} #}
+
+                {# este metodo es para con operador ternario#}
+                {{ alumno.curso_id if alumno.curso_id else '--'}}
+
+            </td>
+          </tr>      
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

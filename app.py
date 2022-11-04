@@ -12,7 +12,7 @@ app = Flask (__name__)
 app.config['MYSQL_HOST'] = environ.get('MYSQL_HOST')
 app.config['MYSQL_USER'] = environ.get('MYSQL_USER')
 app.config['MYSQL_PASSWORD'] = environ.get('MYSQL_PASSWORD')
-app.config['MYSQL_DB'] =environ.get('MYSQL_DB')
+app.config['MYSQL_DB'] = environ.get('MYSQL_DB')
 app.config['MYSQL_PORT'] = int(environ.get('MYSQL_PORT'))
 
 # --print(app.config) --almacena todas las variables de configuracion de FLASK
@@ -30,7 +30,7 @@ def inicio():
 def pagina_inicial():
     return render_template('inicio.html')
 
-@app.route('/alumnos', methods=['GET'])   
+@app.route('/mostrar-alumnos', methods=['GET'])   
 def devolver_alumnos():
     #crea  una conexion en la base de datos
     cursor = mysql.connection.cursor()
@@ -38,11 +38,31 @@ def devolver_alumnos():
     cursor.execute("SELECT * FROM alumnos")
     #devolver toda la informacion de esa consulta
     resultado = cursor.fetchall()
-    print (resultado)
+    print(resultado)
+    resultado_final = []
+    for alumno in resultado:
+        print(alumno)
+        alumno_diccionario ={
+            'id':alumno[0],
+            'nombre':alumno[1],
+            'ape_paterno':alumno[2],
+            'ape_materno':alumno[3],
+            'correo':alumno[4],
+            'num_emergencia':alumno[5],
+            'curso_id':alumno[6]
+        }
+        print(alumno_diccionario)
+        resultado_final.append(alumno_diccionario)
+    #return {
+    #    'message':'los alumnos son:',
+    #    'content': resultado_final
+    #}
+    return render_template('mostrar_alumnos.html',alumnos=resultado_final, mensaje='hola desde Flask')
 
-    return {
-        'message':'los alumnos son:'
-    }
+@app.route("/agregar-alumnos",methods =['GET'])   
+def agregar_alumno():
+    return render_template('agregar_alumno.html')
+
 
 app.run(debug=True)
 

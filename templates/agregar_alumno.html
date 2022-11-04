@@ -1,0 +1,88 @@
+{% extends 'base.html' %} {% block cuerpo %}
+<div class="container mt-3">
+    <form class="row g-3">
+
+        <div class="h4 pb-2 mb-4 text-danger border-bottom border-danger text-center">
+            DATOS PERSONALES
+        </div>
+
+        <div class="container row d-flex justify-content-around">
+            <div class="col-4 text-center">
+                <label for="validationDefault01" class="form-label">nombre</label>
+                <input type="text" class="form-control" id="validationDefault01" value="" placeholder="nombre" required>
+            </div>
+            <div class="col-4 text-center">
+                <label for="validationDefault02" class="form-label">apellido paterno</label>
+                <input type="text" class="form-control" id="validationDefault02"placeholder="apellido paterno"  value="" required>
+            </div>
+            <div class="col-4 text-center">
+                <label for="validationDefault03" class="form-label">apellido materno</label>
+                <input type="text" class="form-control" id="validationDefault03" placeholder="apellido materno" value="" required>
+            </div>
+        </div>
+
+
+        <div class="h4 pb-2 mb-4 text-danger border-bottom border-danger text-center">
+            DATOS DE CONTACTO
+        </div>
+
+
+        <div class="container row d-flex justify-content-around text-center">
+            <div class="col-md-8 ">
+                <label for="validationDefault04" class="form-label">correo electronico </label>
+                <input type="text" class="form-control" id="validationDefault04" value="" placeholder="ejemplo@correo.com" 
+                required>
+            </div>
+
+            <div class="col-md-4">
+                <label for="validationDefault05" class="form-label">nro de emergencia</label>
+                <input type="text" class="form-control" id="validationDefault05" placeholder="nro de emergencia" required>
+            </div>
+        </div>
+
+        <div class="h4 pb-2 mb-4 text-danger border-bottom border-danger text-center">
+            CURSOS
+        </div>
+
+
+        <div class="container d-flex justify-content-between align-items-cente  ">
+
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">MATEMATICA</label>
+              </div>
+
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">CTS</label>
+              </div>
+
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">ARTE</label>
+              </div>
+
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">EDUCACION FISICA </label>
+              </div>
+
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">INGLES</label>
+              </div>
+
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">COMUNICACION</label>
+              </div>
+        </div>
+
+
+        <div class="d-grid">
+                <button class="btn btn-primary" type="submit">REGISTRAR</button>
+        </div>
+
+    </form>
+</div>
+{% endblock %}
